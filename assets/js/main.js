@@ -16,11 +16,18 @@ const SITE_CONFIG = {
   // Klaviyo list ID for the footer newsletter sign up
   klaviyoNewsletterListId: "TPcwRC",
 
-  // Where the Skin Scientist enrol form posts to (CRM / Zapier / Make webhook). Sent as JSON.
+  // Applications always go to Klaviyo (as a "Submitted Skin Scientist Application" event).
+  // Optional extra: also post them to a CRM / Zapier / Make webhook. Sent as JSON. Leave as is to skip.
   enrolWebhookUrl: "REPLACE_WITH_ENROL_FORM_WEBHOOK_URL",
 
-  // Optional: send people here after the enrol form submits (e.g. Acuity booking link)
-  enrolRedirectUrl: ""
+  // Where to send people after the application form submits (the "book your call" thank you page)
+  enrolRedirectUrl: "thank-you/",
+
+  // Acuity booking page embedded on /skin-scientist/thank-you/
+  acuityBookingUrl: "https://app.acuityscheduling.com/schedule.php?owner=32679780&appointmentType=95880284",
+
+  // Jade's WhatsApp number for call confirmations, international format with no + or spaces (e.g. 447700900123)
+  jadeWhatsAppNumber: "REPLACE_WITH_JADE_WHATSAPP_NUMBER"
 };
 
 (() => {
@@ -465,6 +472,52 @@ document.querySelectorAll("form[data-form='newsletter']").forEach((form) => {
   });
 });
 
+// UK-friendly phone tidy up: Klaviyo only accepts E.164 (+447700900123), so anything else is left off the profile
+function toE164(raw) {
+  let p = String(raw || "").replace(/[^\d+]/g, "");
+  if (p.startsWith("00")) p = "+" + p.slice(2);
+  else if (p.startsWith("0")) p = "+44" + p.slice(1);
+  else if (p.startsWith("44")) p = "+" + p;
+  return /^\+\d{10,15}$/.test(p) ? p : "";
+}
+
+// Records the application in Klaviyo as an event on the applicant's profile.
+// This does NOT subscribe them to marketing: it just creates/updates the profile
+// so Jade can see every application and trigger flows off "Submitted Skin Scientist Application".
+async function klaviyoApplication(data) {
+  const parts = (data.full_name || "").trim().split(/\s+/);
+  const answers = {
+    "Full name": data.full_name || "",
+    Phone: data.phone || "",
+    Instagram: data.instagram || "",
+    "Current goal": data.goal || "",
+    "Biggest struggle": data.struggle || "",
+    "Ready to invest": data.investment_ready || "",
+    Page: data.page
+  };
+  const profile = { email: data.email, properties: { instagram_handle: data.instagram || "", skin_scientist_applied: true, skin_scientist_investment_ready: data.investment_ready || "" } };
+  if (parts[0]) profile.first_name = parts[0];
+  if (parts.length > 1) profile.last_name = parts.slice(1).join(" ");
+  const phone = toE164(data.phone);
+  if (phone) profile.phone_number = phone;
+
+  const res = await fetch(`https://a.klaviyo.com/client/events/?company_id=${SITE_CONFIG.klaviyoPublicKey}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/vnd.api+json", revision: "2024-10-15" },
+    body: JSON.stringify({
+      data: {
+        type: "event",
+        attributes: {
+          properties: answers,
+          metric: { data: { type: "metric", attributes: { name: "Submitted Skin Scientist Application" } } },
+          profile: { data: { type: "profile", attributes: profile } }
+        }
+      }
+    })
+  });
+  if (!res.ok && res.status !== 202) throw new Error("Klaviyo error " + res.status);
+}
+
 document.querySelectorAll("form[data-form='enrol']").forEach((form) => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -473,24 +526,77 @@ document.querySelectorAll("form[data-form='enrol']").forEach((form) => {
     data.page = location.pathname;
     data.submitted_at = new Date().toISOString();
     btn.disabled = true;
-    setMsg(form, "Sending...", "");
-    try {
-      if (SITE_CONFIG.enrolWebhookUrl.startsWith("REPLACE")) throw new Error("enrolWebhookUrl not set in SITE_CONFIG");
-      const res = await fetch(SITE_CONFIG.enrolWebhookUrl, {
+    setMsg(form, "Sending your application...", "");
+
+    // Send to Klaviyo, plus the optional webhook (CRM / Zapier / Make) if one is set
+    const jobs = [klaviyoApplication(data)];
+    if (SITE_CONFIG.enrolWebhookUrl && !SITE_CONFIG.enrolWebhookUrl.startsWith("REPLACE")) {
+      jobs.push(fetch(SITE_CONFIG.enrolWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
-      });
-      if (!res.ok) throw new Error("Webhook error " + res.status);
-      if (SITE_CONFIG.enrolRedirectUrl) { location.href = SITE_CONFIG.enrolRedirectUrl; return; }
-      form.reset();
-      setMsg(form, "", "");
-      showSuccess(form);
-    } catch (err) {
-      console.error(err);
-      setMsg(form, "Something went wrong there. Please try again or DM me on Instagram.", "err");
-    } finally {
-      btn.disabled = false;
+      }).then((r) => { if (!r.ok) throw new Error("Webhook error " + r.status); }));
     }
+    const results = await Promise.allSettled(jobs);
+    const saved = results.some((r) => r.status === "fulfilled");
+    results.forEach((r) => { if (r.status === "rejected") console.error(r.reason); });
+
+    if (!saved) {
+      setMsg(form, "Something went wrong there. Please try again or DM me on Instagram.", "err");
+      btn.disabled = false;
+      return;
+    }
+    if (SITE_CONFIG.enrolRedirectUrl) {
+      try { sessionStorage.setItem("ss_applicant", JSON.stringify({ full_name: data.full_name || "", email: data.email || "", phone: data.phone || "" })); } catch (_) {}
+      location.href = SITE_CONFIG.enrolRedirectUrl;
+      return;
+    }
+    form.reset();
+    setMsg(form, "", "");
+    showSuccess(form);
+    btn.disabled = false;
   });
 });
+
+/* ----------------------------------------------------------
+   Thank you page: Acuity booking embed (prefilled) + WhatsApp confirm
+   ---------------------------------------------------------- */
+(() => {
+  const slot = document.querySelector("[data-acuity]");
+  if (!slot) return;
+  let a = {};
+  try { a = JSON.parse(sessionStorage.getItem("ss_applicant") || "{}"); } catch (_) {}
+  const parts = (a.full_name || "").trim().split(/\s+/);
+  const first = parts[0] || "";
+  const last = parts.slice(1).join(" ");
+
+  // Acuity accepts these query parameters to prefill the client's details
+  const url = new URL(SITE_CONFIG.acuityBookingUrl);
+  if (first) url.searchParams.set("firstName", first);
+  if (last) url.searchParams.set("lastName", last);
+  if (a.email) url.searchParams.set("email", a.email);
+  if (a.phone) url.searchParams.set("phone", a.phone);
+
+  const iframe = document.createElement("iframe");
+  iframe.src = url.toString();
+  iframe.title = "Book your call with Jade";
+  iframe.width = "100%";
+  iframe.height = "800";
+  iframe.setAttribute("frameborder", "0");
+  iframe.setAttribute("allow", "payment");
+  slot.appendChild(iframe);
+  const s = document.createElement("script");
+  s.src = "https://embed.acuityscheduling.com/js/embed.js";
+  document.body.appendChild(s);
+
+  document.querySelectorAll("[data-first-name]").forEach((el) => { if (first) el.textContent = " " + first; });
+
+  const num = SITE_CONFIG.jadeWhatsAppNumber;
+  document.querySelectorAll("[data-whatsapp]").forEach((btn) => {
+    if (!num || num.startsWith("REPLACE")) { btn.removeAttribute("href"); btn.setAttribute("aria-disabled", "true"); return; }
+    const msg = `Hi Jade, it's ${first || "me"}. I've just booked my Skin Scientist call and I'm confirming I can make it.`;
+    btn.href = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    btn.target = "_blank";
+    btn.rel = "noopener";
+  });
+})();

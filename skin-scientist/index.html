@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/course-app.css">
   <script>
     document.documentElement.classList.add("anim");
     setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove("anim"); }, 2500);
@@ -54,7 +55,7 @@
       </a>
       <div class="header-cta">
         <a href="../contact/" class="main-nav-link" style="font-size:.86rem;text-decoration:none;opacity:.82;margin-right:8px">Contact</a>
-        <a href="#enrol" class="btn magnetic">Enrol now</a>
+        <a href="#enrol" class="btn magnetic">Apply now</a>
       </div>
     </div>
   </header>
@@ -65,7 +66,7 @@
     <a href="../about/">About</a>
     <a href="../inner-circle/">Inner Circle Members</a>
     <a href="../contact/">Contact</a>
-    <a href="#enrol">Enrol now</a>
+    <a href="#enrol">Apply now</a>
   </div>
 
   <main>
@@ -97,15 +98,12 @@
       </svg>
 
       <div class="container">
-        <div class="hero-top" data-reveal>
-          <span class="pill"><i></i> Version 2.0 now open</span>
-        </div>
         <h1 data-split>The Skin <span class="soft">Scientist</span></h1>
         <div class="hero-bottom">
           <p class="hero-lead" data-reveal>The science-backed course that gives skin specialists the knowledge, confidence and clinical skills to deliver better results, charge more and build a business they're proud of.</p>
           <div class="hero-actions" data-reveal>
             <a href="#watch" class="btn btn--outline magnetic"><span class="play-ic"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>&nbsp;&nbsp;Watch</a>
-            <a href="#enrol" class="btn btn--light magnetic">Enrol now
+            <a href="#enrol" class="btn btn--light magnetic">Apply now
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
             </a>
           </div>
@@ -143,7 +141,6 @@
           <div class="sticky-media">
             <div class="media" data-clip>
               <img src="../assets/img/jade-laptop.jpg" alt="Jade Irving working on The Skin Scientist" loading="lazy">
-              <span class="media-tag"><i></i> Taught by Jade Irving</span>
             </div>
             <div class="media-float">
               <b>BSc</b>
@@ -293,12 +290,213 @@
           <article class="m-card m-card--cta">
             <span class="m-tag" style="color:var(--ink);margin-top:0">Ready?</span>
             <h3>Start understanding the why.</h3>
-            <a href="#enrol" class="btn magnetic" style="align-self:flex-start">Enrol now
+            <a href="#enrol" class="btn magnetic" style="align-self:flex-start">Apply now
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
             </a>
           </article>
         </div>
         <div class="h-progress"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ================= INSIDE THE COURSE (interactive app) ================= -->
+    <section class="section section--paper course-app" id="inside-app">
+      <div class="container ca-grid">
+
+        <div class="ca-copy">
+          <span class="eyebrow" data-reveal>Take a look inside</span>
+          <h2 data-split>Your course, <span class="soft">in your pocket</span></h2>
+          <p class="ca-lede" data-reveal>Learn between clients, on the sofa or on your commute. Every lesson works on your phone, and your progress follows you everywhere. Go on, have a tap around.</p>
+
+          <div class="ca-features" role="tablist" aria-label="Preview the course" data-stagger>
+            <button class="ca-feature active" data-go="0" role="tab" aria-selected="true">
+              <span class="n">01</span>
+              <span><b>Every module in one place</b><small>Clear lessons, ticked off as you go</small></span>
+            </button>
+            <button class="ca-feature" data-go="1" role="tab" aria-selected="false">
+              <span class="n">02</span>
+              <span><b>Science you can actually see</b><small>Visual lessons that make the biology click</small></span>
+            </button>
+            <button class="ca-feature" data-go="2" role="tab" aria-selected="false">
+              <span class="n">03</span>
+              <span><b>Video lessons, filmed in clinic</b><small>Watch, rewatch and jump to any chapter</small></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="ca-stage" data-reveal>
+          <div class="ca-glow" aria-hidden="true"></div>
+
+          <!-- Floating chips -->
+          <div class="ca-chip ca-chip--progress" aria-hidden="true">
+            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><circle class="v" cx="18" cy="18" r="15" data-ring-mini/></svg>
+            <span><small>Your progress</small><b data-count-label>2 of 7 lessons</b></span>
+          </div>
+          <div class="ca-chip ca-chip--video" aria-hidden="true">
+            <i class="play"></i><span><small>Video lesson</small><b>Filmed in clinic</b></span>
+          </div>
+          <div class="ca-chip ca-chip--life" aria-hidden="true">
+            <b>&infin;</b><span><small>Lifetime access</small><b>Every future update</b></span>
+          </div>
+
+          <div class="ca-phones">
+
+            <!-- ===== PHONE 1: COURSE ===== -->
+            <div class="ca-phone" data-screen="0">
+              <button class="ca-cover" aria-label="Show the course overview"></button>
+              <div class="ca-screen">
+                <div class="ca-status"><span>08:41</span><i class="island"></i><span class="ic"><b></b><b></b><b></b><em></em></span></div>
+                <div class="ca-scroll">
+                  <div class="ca-top">
+                    <div>
+                      <small>Welcome back</small>
+                      <h4>The Skin Scientist <span>2.0</span></h4>
+                    </div>
+                    <div class="ca-ring">
+                      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"/><circle class="v" cx="22" cy="22" r="18" data-ring/></svg>
+                      <b data-pct>29%</b>
+                    </div>
+                  </div>
+
+                  <button class="ca-continue" data-open="1">
+                    <span class="lbl">Continue learning</span>
+                    <b>How AHAs, BHAs and PHAs work</b>
+                    <span class="row"><span class="bar"><i></i></span><span class="go">Resume</span></span>
+                  </button>
+
+                  <div class="ca-mod open">
+                    <button class="ca-mod-head" aria-expanded="true">
+                      <span><b>The skin barrier and skin barrier damage</b><small><span data-sec-count="barrier">2</span> / 5 complete</small></span>
+                      <i class="chev"></i>
+                    </button>
+                    <ul class="ca-lessons">
+                      <li data-lesson="barrier-video"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-video"></i>What is the skin barrier and how is it damaged <em>16:30</em></span><button class="start" data-open="2">Start</button></li>
+                      <li data-lesson="barrier-what"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-text"></i>The skin barrier</span><button class="start" data-open="2">Start</button></li>
+                      <li data-lesson="barrier-damage"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-text"></i>Skin barrier damage</span><button class="start" data-open="2">Start</button></li>
+                      <li data-lesson="barrier-tell"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-text"></i>How to tell if the skin barrier is damaged</span><button class="start" data-open="2">Start</button></li>
+                      <li data-lesson="barrier-repair"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-text"></i>Barrier repair</span><button class="start" data-open="2">Start</button></li>
+                    </ul>
+                  </div>
+
+                  <div class="ca-mod">
+                    <button class="ca-mod-head" aria-expanded="false">
+                      <span><b>Acids and chemical exfoliation</b><small><span data-sec-count="acids">0</span> / 2 complete</small></span>
+                      <i class="chev"></i>
+                    </button>
+                    <ul class="ca-lessons">
+                      <li data-lesson="acids-how"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-text"></i>How AHAs, BHAs and PHAs work</span><button class="start" data-open="1">Start</button></li>
+                      <li data-lesson="acids-choose"><button class="tick" aria-label="Mark complete"></button><span class="t"><i class="ic-text"></i>Choosing the right acid for your client</span><button class="start" data-open="1">Start</button></li>
+                    </ul>
+                  </div>
+
+                  <div class="ca-mod locked">
+                    <div class="ca-mod-head"><span><b>Extractions Masterclass</b><small>Filmed in clinic</small></span><i class="lock"></i></div>
+                  </div>
+                  <div class="ca-mod locked">
+                    <div class="ca-mod-head"><span><b>Pricing, Content &amp; Client Retention</b><small>Business</small></span><i class="lock"></i></div>
+                  </div>
+                </div>
+                <div class="ca-toast" role="status"></div>
+              </div>
+            </div>
+
+            <!-- ===== PHONE 2: LESSON ===== -->
+            <div class="ca-phone" data-screen="1">
+              <button class="ca-cover" aria-label="Show an interactive lesson"></button>
+              <div class="ca-screen">
+                <div class="ca-status"><span>08:41</span><i class="island"></i><span class="ic"><b></b><b></b><b></b><em></em></span></div>
+                <div class="ca-scroll">
+                  <div class="ca-bar"><button class="back" data-open="0">Course</button><span>Lesson 1 of 2</span></div>
+                  <small class="ca-crumb">Acids and chemical exfoliation</small>
+                  <h4 class="ca-title">How acids work</h4>
+
+                  <div class="ca-seg" role="tablist">
+                    <i class="knob"></i>
+                    <button class="active" data-acid="aha">AHA</button>
+                    <button data-acid="bha">BHA</button>
+                    <button data-acid="pha">PHA</button>
+                  </div>
+
+                  <div class="ca-diagram" data-mode="aha">
+                    <svg viewBox="0 0 260 180" aria-label="Diagram of how acids move through the skin layers">
+                      <rect class="ly l0" x="0" y="34" width="260" height="20"/>
+                      <rect class="ly l1" x="0" y="54" width="260" height="38"/>
+                      <rect class="ly l2" x="0" y="92" width="260" height="50"/>
+                      <rect class="ly l3" x="0" y="142" width="260" height="38"/>
+                      <path class="foll" d="M196 34 C196 70 192 100 194 128 C196 146 216 146 218 128 C220 100 216 70 216 34 Z"/>
+                      <ellipse class="sebum" cx="206" cy="118" rx="7" ry="11"/>
+                      <text x="10" y="48">Skin surface</text>
+                      <text x="10" y="77">Epidermis</text>
+                      <text x="10" y="121">Dermis</text>
+                      <text x="10" y="165">Subcutaneous tissue</text>
+                      <g class="mol m1"><circle r="8"/></g>
+                      <g class="mol m2"><circle r="8"/></g>
+                      <g class="mol m3"><circle r="8"/></g>
+                      <g class="mol m4"><circle r="8"/></g>
+                      <text class="mol-lbl" x="130" y="16" text-anchor="middle" data-mol-label>AHA</text>
+                    </svg>
+                  </div>
+
+                  <div class="ca-acid" data-acid-panel="aha">
+                    <b>Alpha hydroxy acids</b>
+                    <ul><li>Water soluble</li><li>Work on the surface, loosening the bonds between dead cells</li><li>Best for texture, dullness and pigmentation</li></ul>
+                    <div class="ca-pills">
+                      <button class="active" data-pill="Smallest AHA molecule, so it works fastest. Boosts collagen, best for normal to dry skin.">Glycolic</button>
+                      <button data-pill="Hydrates as it exfoliates and improves texture. Gentle enough for sensitive skin.">Lactic</button>
+                      <button data-pill="Larger molecule, gentle and anti-inflammatory. Helps pigmentation, best for acne-prone skin.">Mandelic</button>
+                    </div>
+                    <p class="ca-pill-text">Smallest AHA molecule, so it works fastest. Boosts collagen, best for normal to dry skin.</p>
+                  </div>
+                  <div class="ca-acid" data-acid-panel="bha" hidden>
+                    <b>Beta hydroxy acid (salicylic)</b>
+                    <ul><li>Oil soluble</li><li>Travels into the follicle and breaks down the oil and debris inside</li><li>Best for congestion, blackheads and oily skin</li></ul>
+                  </div>
+                  <div class="ca-acid" data-acid-panel="pha" hidden>
+                    <b>Polyhydroxy acids</b>
+                    <ul><li>Large molecule, so it stays right on the surface</li><li>Hydrates while it gently exfoliates</li><li>Best for sensitive skin</li></ul>
+                  </div>
+
+                  <button class="ca-done" data-complete="acids-how"><span>Mark lesson complete</span></button>
+                </div>
+                <div class="ca-toast" role="status"></div>
+              </div>
+            </div>
+
+            <!-- ===== PHONE 3: VIDEO ===== -->
+            <div class="ca-phone" data-screen="2">
+              <button class="ca-cover" aria-label="Show a video lesson"></button>
+              <div class="ca-screen">
+                <div class="ca-status"><span>08:40</span><i class="island"></i><span class="ic"><b></b><b></b><b></b><em></em></span></div>
+                <div class="ca-scroll">
+                  <div class="ca-bar"><button class="back" data-open="0">Course</button><span>Video lesson</span></div>
+
+                  <div class="ca-player ch0">
+                    <svg class="bricks" viewBox="0 0 240 135" aria-hidden="true"></svg>
+                    <span class="ca-chapter-tag" data-chapter-tag>The barrier, explained</span>
+                    <button class="ca-play" aria-label="Play"><i></i></button>
+                    <div class="ca-scrub"><span class="time" data-time>0:00</span><span class="track"><i data-track></i></span><span class="time">16:30</span></div>
+                  </div>
+
+                  <h4 class="ca-title" style="margin-top:14px">What is the skin barrier and how is it damaged</h4>
+                  <small class="ca-crumb">Video · 16:30 · The skin barrier</small>
+
+                  <ol class="ca-chapters">
+                    <li><button data-seek="0" data-label="The barrier, explained"><em>0:00</em>What the barrier actually is</button></li>
+                    <li><button data-seek="250" data-label="Bricks and mortar"><em>4:10</em>The brick and mortar model</button></li>
+                    <li><button data-seek="575" data-label="What damages it"><em>9:35</em>What damages the barrier</button></li>
+                    <li><button data-seek="800" data-label="Spotting the signs"><em>13:20</em>Spotting a compromised barrier</button></li>
+                  </ol>
+
+                  <button class="ca-done" data-complete="barrier-video"><span>Mark lesson complete</span></button>
+                </div>
+                <div class="ca-toast" role="status"></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="ca-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
+        </div>
+
       </div>
     </section>
 
@@ -345,13 +543,12 @@
             <span class="eyebrow" data-reveal>What makes this different</span>
             <p class="quote" data-reveal>Most skin courses are taught by people with a weekend qualification and a ring light. This one is built by someone with a four-year molecular biology degree <span class="soft">who is currently completing a Masters in Dermatology.</span></p>
             <p data-reveal>That's not a marketing line. That's the difference between learning what to do and actually understanding why it works.</p>
-            <a href="#enrol" class="btn magnetic" data-reveal style="margin-top:14px">Enrol now
+            <a href="#enrol" class="btn magnetic" data-reveal style="margin-top:14px">Apply now
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
             </a>
           </div>
           <div class="media media--land" data-clip>
             <img src="../assets/img/treatment-bed.jpg" alt="Treatment room with a By The Molecule towel" loading="lazy">
-            <span class="media-tag"><i></i> Filmed in a real clinic</span>
           </div>
         </div>
 
@@ -366,12 +563,12 @@
       </div>
     </section>
 
-    <!-- ================= ENROL ================= -->
+    <!-- ================= APPLY (anchor kept as #enrol so existing links still work) ================= -->
     <section class="section section--dark" id="enrol" data-hide-sticky>
       <div class="container enrol-grid">
         <div class="enrol-side">
-          <span class="eyebrow light" data-reveal>Enrol now</span>
-          <h2 data-split>Enter your details <span class="soft">to enrol</span></h2>
+          <span class="eyebrow light" data-reveal>Apply now</span>
+          <h2 data-split>Apply for <span class="soft">your place</span></h2>
           <p data-reveal>Tell me a little about you and your clinic. I read every application personally.</p>
           <div class="price-card" data-reveal>
             <div class="from">The Skin Scientist 2.0 starts from</div>
@@ -382,11 +579,11 @@
               <li>Split it with Clearpay, interest-free</li>
             </ul>
           </div>
-          <p class="next-steps" data-reveal><b>What happens next?</b> Submit your details and I'll be in touch to answer your questions and get you started.</p>
+          <p class="next-steps" data-reveal><b>What happens next?</b> Submit your application and you'll go straight through to book a free 15-minute call with me, so we can make sure The Skin Scientist is the right fit for you.</p>
         </div>
 
         <div class="form-card" data-reveal>
-          <h3>Your details</h3>
+          <h3>Your application</h3>
           <p class="form-intro">Fields marked * are required.</p>
           <form data-form="enrol">
             <div class="field">
@@ -424,7 +621,7 @@
                 <label><input type="radio" name="investment_ready" value="No"> No</label>
               </div>
             </div>
-            <button type="submit" class="btn btn--block" style="margin-top:10px">Submit
+            <button type="submit" class="btn btn--block" style="margin-top:10px">Submit application
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
             </button>
             <p class="form-msg" role="status"></p>
@@ -461,9 +658,9 @@
 
     <!-- ================= BIG CTA MARQUEE ================= -->
     <div class="big-marquee">
-      <a href="#enrol" class="big-marquee-track" aria-label="Enrol now">
-        <span>Enrol now</span><span class="outline">The Skin Scientist</span><span>Enrol now</span><span class="outline">The Skin Scientist</span>
-        <span>Enrol now</span><span class="outline">The Skin Scientist</span><span>Enrol now</span><span class="outline">The Skin Scientist</span>
+      <a href="#enrol" class="big-marquee-track" aria-label="Apply now">
+        <span>Apply now</span><span class="outline">The Skin Scientist</span><span>Apply now</span><span class="outline">The Skin Scientist</span>
+        <span>Apply now</span><span class="outline">The Skin Scientist</span><span>Apply now</span><span class="outline">The Skin Scientist</span>
       </a>
     </div>
 
@@ -500,11 +697,12 @@
 
   <div class="sticky-cta">
     <span>The Skin Scientist 2.0 · Lifetime access</span>
-    <a href="#enrol" class="btn btn--light">Enrol now</a>
+    <a href="#enrol" class="btn btn--light">Apply now</a>
   </div>
 
   <script src="../assets/js/vendor/gsap.min.js"></script>
   <script src="../assets/js/vendor/ScrollTrigger.min.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/course-app.js"></script>
 </body>
 </html>

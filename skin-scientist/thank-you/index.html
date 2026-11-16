@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Step 2: Book your call | The Skin Scientist 2.0</title>
+  <meta name="description" content="Your application is in. Book your free 15-minute call with Jade.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../../assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <style>
+    .ty-hero { background: var(--ink); color: rgba(255,255,255,.75); padding: 190px 0 120px; position: relative; overflow: hidden; }
+    .ty-hero .container { position: relative; z-index: 2; }
+    .ty-hero h1 { color: var(--white); font-size: clamp(2.6rem, 6vw, 5.4rem); margin: 26px 0 22px; max-width: 980px; }
+    .ty-hero h1 .soft { color: var(--sand); }
+    .ty-hero .lead { font-size: 1.12rem; max-width: 620px; margin: 0; }
+    .ty-hero .hero-molecule { right: -140px; top: 40px; opacity: .35; }
+
+
+    .ty-body { background: var(--cream); padding: 90px 0 130px; }
+    .ty-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 40px; align-items: start; }
+    .book-card { background: var(--white); border-radius: var(--r); padding: 34px 30px 20px; box-shadow: var(--shadow); }
+    .book-card .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+    .book-card h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin: 0; }
+    .book-card .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .book-card .meta span { font-size: .78rem; font-weight: 600; padding: 7px 12px; border-radius: 99px; background: var(--cream); color: var(--ink); }
+    .acuity-slot iframe { display: block; width: 100%; min-height: 800px; border: 0; }
+
+    .side { display: grid; gap: 20px; position: sticky; top: 110px; }
+    .confirm-card { background: var(--ink); color: rgba(255,255,255,.75); border-radius: var(--r); padding: 32px 28px; }
+    .confirm-card .eyebrow { color: var(--sand); margin-bottom: 14px; }
+    .confirm-card h3 { color: var(--white); font-size: 1.5rem; letter-spacing: -.02em; }
+    .confirm-card p { font-size: .95rem; }
+    .confirm-card .warn { display: block; margin-top: 14px; padding: 12px 14px; border-radius: var(--r-sm); background: rgba(215,196,177,.12); color: var(--sand); font-size: .86rem; font-weight: 600; }
+    .wa-btn { --bg: #25d366; --fg: var(--ink); margin-top: 8px; }
+    .wa-btn::before { background: var(--white); }
+    .wa-btn svg { width: 18px; height: 18px; }
+    .wa-btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+
+    .expect-card { background: var(--white); border-radius: var(--r); padding: 30px 28px; }
+    .expect-card h3 { font-size: 1.2rem; }
+    .expect-card ol { list-style: none; padding: 0; margin: 16px 0 0; counter-reset: e; }
+    .expect-card li { counter-increment: e; position: relative; padding: 12px 0 12px 40px; border-top: 1px solid var(--line); font-size: .93rem; }
+    .expect-card li::before { content: "0" counter(e); position: absolute; left: 0; top: 13px; font-size: .74rem; font-weight: 600; letter-spacing: .1em; color: var(--muted); }
+    .expect-card li b { color: var(--ink); }
+
+    @media (max-width: 1024px) {
+      .ty-grid { grid-template-columns: 1fr; }
+      .side { position: static; }
+    }
+    @media (max-width: 720px) {
+      .ty-hero { padding: 150px 0 80px; }
+      .ty-body { padding: 50px 0 90px; }
+      .book-card { padding: 24px 14px 10px; margin: 0 -6px; }
+      .book-card .head { padding: 0 6px 18px; }
+      }
+  </style>
+  <script>
+    document.documentElement.classList.add("anim");
+    setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove("anim"); }, 2500);
+  </script>
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav" aria-label="Main">
+        <a href="../../">Home</a>
+        <a href="../">The Skin Scientist</a>
+        <a href="../../about/">About</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="../../" class="logo" aria-label="By The Molecule home">
+        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle class="ring" cx="24" cy="24" r="22.5" stroke-dasharray="2 3"/>
+          <path d="M14.5 21l4.75-2.75L24 21v5.5l-4.75 2.75-4.75-2.75z"/>
+          <path d="M24 21l4.75-2.75L33.5 21v5.5l-4.75 2.75L24 26.5z"/>
+          <path d="M33.5 21l3.5-2M14.5 26.5l-3.5 2"/>
+          <circle cx="37.6" cy="18.6" r="1.3" fill="currentColor"/>
+          <circle cx="10.4" cy="28.9" r="1.3" fill="currentColor"/>
+        </svg>
+        <span class="logo-small">By The</span>
+        <span class="logo-big">Molecule</span>
+      </a>
+      <div class="header-cta"><a href="#book" class="btn magnetic">Book your call</a></div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" aria-label="Mobile menu">
+    <a href="#book">Book your call</a>
+    <a href="../">The Skin Scientist</a>
+    <a href="../../">Home</a>
+  </div>
+
+  <main>
+
+    <section class="ty-hero">
+      <svg class="hero-molecule" viewBox="0 0 600 600" fill="none" stroke-width="1.2" aria-hidden="true">
+        <path d="M200 170l60-35 60 35v70l-60 35-60-35z"/>
+        <path d="M320 170l60-35 60 35v70l-60 35-60-35z"/>
+        <path d="M260 275v70l60 35 60-35v-70"/>
+        <line x1="440" y1="170" x2="510" y2="130"/>
+        <line x1="380" y1="135" x2="380" y2="60"/>
+        <line x1="320" y1="380" x2="320" y2="460"/>
+        <circle cx="510" cy="130" r="7"/>
+        <circle cx="380" cy="60" r="5"/>
+        <circle cx="320" cy="460" r="8"/>
+      </svg>
+      <div class="container">
+        <h1 data-split>Step 2: book your call <span class="soft">with me</span></h1>
+        <p class="lead" data-reveal>Thank you<span data-first-name></span>, your application is in. Now pick a time for a free 15-minute Zoom call so we can talk through The Skin Scientist and make sure it's the right fit for you.</p>
+      </div>
+    </section>
+
+    <section class="ty-body" id="book">
+      <div class="container ty-grid">
+
+        <div class="book-card" data-reveal>
+          <div class="head">
+            <h2>Choose a <span class="soft">date and time</span></h2>
+            <div class="meta"><span>15 minutes</span><span>Zoom</span><span>Free</span></div>
+          </div>
+          <div class="acuity-slot" data-acuity></div>
+        </div>
+
+        <aside class="side">
+          <div class="confirm-card" data-reveal>
+            <span class="eyebrow">Step 3</span>
+            <h3>Confirm your call on WhatsApp</h3>
+            <p>My clinic diary is busy, so calls can't be rescheduled. Once you've booked, message me on WhatsApp to confirm you can definitely make your day and time.</p>
+            <a class="btn btn--block wa-btn" data-whatsapp href="#">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+              Confirm on WhatsApp
+            </a>
+            <span class="warn">If your call isn't confirmed, it will be cancelled.</span>
+          </div>
+
+          <div class="expect-card" data-reveal>
+            <h3>What happens on the call</h3>
+            <ol>
+              <li><b>We chat about you and your clinic,</b> where you are now and where you want to be.</li>
+              <li><b>I'll walk you through the course</b> and answer anything you want to know.</li>
+              <li><b>We decide together</b> whether The Skin Scientist is the right fit for you right now.</li>
+            </ol>
+            <p style="margin:16px 0 0;font-size:.88rem;color:var(--muted)">Please join from somewhere quiet where you can comfortably take a Zoom call.</p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-hide-sticky style="padding-top:60px">
+    <div class="container">
+      <div class="footer-word" aria-hidden="true" style="margin-top:0">Molecule</div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> By The Molecule. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="../">The Skin Scientist</a>
+          <a href="../../privacy-policy/">Privacy Policy</a>
+          <a href="../../terms/">Terms &amp; Conditions</a>
+          <a href="../../contact/">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/vendor/gsap.min.js"></script>
+  <script src="../../assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
