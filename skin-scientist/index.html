@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Skin Scientist 2.0 | By The Molecule</title>
+  <meta name="description" content="The science-backed course that gives skin specialists the knowledge, confidence and clinical skills to deliver better results, charge more and build a business they're proud of.">
+  <meta property="og:title" content="The Skin Scientist 2.0 | By The Molecule">
+  <meta property="og:description" content="Science-backed education for estheticians, built by a molecular biology graduate.">
+  <meta property="og:image" content="../assets/img/og-skin-scientist.jpg">
+  <link rel="icon" href="../assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>
+    document.documentElement.classList.add("anim");
+    setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove("anim"); }, 2500);
+  </script>
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ================= ANNOUNCEMENT ================= -->
+  <div class="announce" aria-label="Announcement">
+    <div class="announce-track">
+      <span>Coming soon: The Inner Circle</span><span>The Skin Scientist 2.0 is open</span><span>Lifetime access</span><span>Clearpay available</span>
+      <span>Coming soon: The Inner Circle</span><span>The Skin Scientist 2.0 is open</span><span>Lifetime access</span><span>Clearpay available</span>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav" aria-label="Main">
+        <a href="../">Home</a>
+        <a href="../blog/">Blog</a>
+        <a href="../about/">About</a>
+        <a href="../inner-circle/">Inner Circle</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="../" class="logo" aria-label="By The Molecule home">
+        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle class="ring" cx="24" cy="24" r="22.5" stroke-dasharray="2 3"/>
+          <path d="M14.5 21l4.75-2.75L24 21v5.5l-4.75 2.75-4.75-2.75z"/>
+          <path d="M24 21l4.75-2.75L33.5 21v5.5l-4.75 2.75L24 26.5z"/>
+          <path d="M33.5 21l3.5-2M14.5 26.5l-3.5 2"/>
+          <circle cx="37.6" cy="18.6" r="1.3" fill="currentColor"/>
+          <circle cx="10.4" cy="28.9" r="1.3" fill="currentColor"/>
+        </svg>
+        <span class="logo-small">By The</span>
+        <span class="logo-big">Molecule</span>
+      </a>
+      <div class="header-cta">
+        <a href="../contact/" class="main-nav-link" style="font-size:.86rem;text-decoration:none;opacity:.82;margin-right:8px">Contact</a>
+        <a href="#enrol" class="btn magnetic">Enrol now</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" aria-label="Mobile menu">
+    <a href="../">Home</a>
+    <a href="../blog/">Blog</a>
+    <a href="../about/">About</a>
+    <a href="../inner-circle/">Inner Circle Members</a>
+    <a href="../contact/">Contact</a>
+    <a href="#enrol">Enrol now</a>
+  </div>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" data-hide-sticky>
+      <div class="hero-bg"><img src="../assets/img/hero-treatment-room.jpg" alt="" fetchpriority="high"></div>
+      <div class="hero-grain"></div>
+
+      <svg class="hero-molecule" viewBox="0 0 600 600" fill="none" stroke-width="1.2" aria-hidden="true">
+        <path d="M200 170l60-35 60 35v70l-60 35-60-35z"/>
+        <path d="M320 170l60-35 60 35v70l-60 35-60-35z"/>
+        <path d="M260 275v70l60 35 60-35v-70"/>
+        <path d="M200 240l-60 35v70l60 35 60-35"/>
+        <line x1="440" y1="170" x2="510" y2="130"/>
+        <line x1="380" y1="135" x2="380" y2="60"/>
+        <line x1="140" y1="345" x2="80" y2="385"/>
+        <line x1="320" y1="380" x2="320" y2="460"/>
+        <line x1="440" y1="240" x2="500" y2="280"/>
+        <line x1="200" y1="170" x2="150" y2="120"/>
+        <circle cx="510" cy="130" r="7"/>
+        <circle cx="380" cy="60" r="5"/>
+        <circle cx="80" cy="385" r="6"/>
+        <circle cx="320" cy="460" r="8"/>
+        <circle cx="500" cy="280" r="4"/>
+        <circle cx="150" cy="120" r="5"/>
+        <circle cx="260" cy="135" r="3"/>
+        <circle cx="200" cy="380" r="3"/>
+      </svg>
+
+      <div class="container">
+        <div class="hero-top" data-reveal>
+          <span class="pill"><i></i> Version 2.0 now open</span>
+        </div>
+        <h1 data-split>The Skin <span class="soft">Scientist</span></h1>
+        <div class="hero-bottom">
+          <p class="hero-lead" data-reveal>The science-backed course that gives skin specialists the knowledge, confidence and clinical skills to deliver better results, charge more and build a business they're proud of.</p>
+          <div class="hero-actions" data-reveal>
+            <a href="#watch" class="btn btn--outline magnetic"><span class="play-ic"><svg viewBox="0 0 10 10"><path d="M1 0l9 5-9 5z"/></svg></span>&nbsp;&nbsp;Watch</a>
+            <a href="#enrol" class="btn btn--light magnetic">Enrol now
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"></div>
+    </section>
+
+    <!-- ================= VIDEO ================= -->
+    <section class="video-section" id="watch">
+      <div class="container">
+        <!-- Replace data-youtube-id with the landing page video's YouTube ID -->
+        <div class="video" data-youtube-id="RHZF6KXInqw">
+          <button class="video-play" aria-label="Play video"><span class="video-play-btn"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></span></button>
+          <div class="video-meta"><div><small>Landing page video</small><b>Inside The Skin Scientist, in depth</b></div><small>Watch with sound</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TICKER ================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Molecular biology graduate</span><span class="soft">Science first</span><span>Extractions filmed in clinic</span><span class="soft">Built for estheticians</span><span>Business modules</span><span class="soft">Lifetime access</span><span>Clearpay available</span>
+        <span>Molecular biology graduate</span><span class="soft">Science first</span><span>Extractions filmed in clinic</span><span class="soft">Built for estheticians</span><span>Business modules</span><span class="soft">Lifetime access</span><span>Clearpay available</span>
+      </div>
+    </div>
+
+    <!-- ================= WHY JOIN ================= -->
+    <section class="section section--sand" id="why">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Why you need to join</span>
+        <p class="statement" data-fill>You got into skin because you wanted to help people. But somewhere between the short courses, the conflicting advice and the pressure to just "get more clients", it started to feel like <span class="soft">something was missing.</span></p>
+
+        <div class="why-grid">
+          <div class="sticky-media">
+            <div class="media" data-clip>
+              <img src="../assets/img/jade-laptop.jpg" alt="Jade Irving working on The Skin Scientist" loading="lazy">
+              <span class="media-tag"><i></i> Taught by Jade Irving</span>
+            </div>
+            <div class="media-float">
+              <b>BSc</b>
+              <small>Molecular biology graduate, now completing a Masters in Dermatology</small>
+            </div>
+          </div>
+          <div class="prose-lg">
+            <p data-reveal>The truth is, most skin courses teach you what to do but never explain why it works. You're left following protocols without understanding the biology behind them. When something goes wrong or a client asks a question you can't answer, that gap shows.</p>
+            <p data-reveal>The Skin Scientist changes that. This isn't another surface-level course packed with information you've already heard. This is the deep, science-backed education that gives you genuine understanding of what's happening at a cellular level, so you can treat with real confidence, get better results and build a reputation that speaks for itself.</p>
+            <h3 data-reveal style="margin-top:40px">What this means for you</h3>
+            <ul class="benefits" data-stagger>
+              <li><span class="n">01</span><div><b>Treat with precision, not guesswork.</b> Understand the actual biology behind acne, inflammation and skin conditions.</div></li>
+              <li><span class="n">02</span><div><b>Never second-guess your technique again.</b> Master extractions safely and effectively.</div></li>
+              <li><span class="n">03</span><div><b>Charge like a specialist.</b> Gain the scientific language and credibility to position yourself accordingly.</div></li>
+              <li><span class="n">04</span><div><b>Stop the business side holding you back.</b> Grow your clinic through content, pricing and client delivery.</div></li>
+              <li><span class="n">05</span><div><b>Know exactly what you're doing and why.</b> Walk into every treatment room with real confidence.</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="section section--dark" style="padding:110px 0 120px">
+      <div class="container">
+        <div class="section-head" style="margin-bottom:50px">
+          <h2 data-split>The numbers behind <span class="soft">2.0</span></h2>
+          <p data-reveal>Real depth, built by someone who has studied skin at degree level and treats real clients in a real clinic.</p>
+        </div>
+        <div class="stats" data-stagger>
+          <div class="stat"><b><span data-count="4">4</span><sup>yrs</sup></b><span>Molecular biology degree behind every module</span></div>
+          <div class="stat"><b><span data-count="6">6</span><sup>+</sup></b><span>Modules across science, practical and business</span></div>
+          <div class="stat"><b>&infin;</b><span>Lifetime access, including every future update</span></div>
+          <div class="stat"><b>£<span data-count="0">0</span></b><span>Extra for new modules as the course evolves</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKIN LAYERS ================= -->
+    <section class="section section--cream" id="science">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" data-reveal>Go beneath the surface</span>
+            <h2 data-split>Learn skin <span class="soft">layer by layer</span></h2>
+          </div>
+          <p data-reveal>Tap a layer to see what you'll understand by the end of the course. This is the depth most training never reaches.</p>
+        </div>
+
+        <div class="layers-wrap">
+          <div class="skin" data-reveal>
+            <svg class="skin-follicle" viewBox="0 0 46 330" aria-hidden="true">
+              <path d="M14 0 C14 60 10 120 12 190 C14 250 6 280 8 300 C10 320 36 320 38 300 C40 280 32 250 34 190 C36 120 32 60 32 0 Z"/>
+              <path class="hair" d="M23 310 C23 240 25 160 22 80 C20 40 26 10 30 -10"/>
+            </svg>
+            <button class="skin-layer l1" data-layer="barrier"><span class="lbl"><span class="dot">1</span>Stratum corneum <small>The barrier</small></span></button>
+            <button class="skin-layer l2" data-layer="epidermis"><span class="lbl"><span class="dot">2</span>Epidermis <small>Cells and inflammation</small></span></button>
+            <button class="skin-layer l3" data-layer="dermis"><span class="lbl"><span class="dot">3</span>Dermis <small>Collagen and circulation</small></span></button>
+            <button class="skin-layer l4" data-layer="follicle"><span class="lbl"><span class="dot">4</span>The follicle <small>Where congestion starts</small></span></button>
+            <span class="skin-pulse" aria-hidden="true"></span>
+          </div>
+
+          <div class="layer-panel" aria-live="polite">
+            <div class="layer-info" data-layer="barrier">
+              <span class="tag">The Science of Skin</span>
+              <h3>Why products work, or don't</h3>
+              <p>A deep dive into skin biology, cellular function and the science behind how products and treatments actually work.</p>
+              <ul><li>How the barrier functions and what disrupts it</li><li>What really penetrates the skin and why</li><li>Explaining the science to your clients with confidence</li></ul>
+            </div>
+            <div class="layer-info" data-layer="epidermis">
+              <span class="tag">Acne: Causes, Types &amp; Protocols</span>
+              <h3>What's happening when skin breaks out</h3>
+              <p>The biology behind acne, inflammation and skin conditions, so you can treat with precision instead of following a protocol blindly.</p>
+              <ul><li>The different types of acne and what drives each</li><li>Inflammation at a cellular level</li><li>Building protocols you can justify</li></ul>
+            </div>
+            <div class="layer-info" data-layer="dermis">
+              <span class="tag">Glass Skin &amp; Facial Massage</span>
+              <h3>Results that go deeper</h3>
+              <p>Practical, filmed demonstrations you can replicate in your own clinic, with the science behind why every step works.</p>
+              <ul><li>What's happening beneath the surface during treatment</li><li>Technique you can see, not just read about</li><li>Better, more visible results for your clients</li></ul>
+            </div>
+            <div class="layer-info" data-layer="follicle">
+              <span class="tag">Extractions Masterclass</span>
+              <h3>Extract with total confidence</h3>
+              <p>Filmed in clinic. Safe extraction technique, the right tools, how to prep the skin, when to extract and when to leave it.</p>
+              <ul><li>Preparing the skin properly before you start</li><li>Minimising marking and post-treatment reactions</li><li>Professionally filmed demonstrations from real treatments</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MODULES (horizontal scroll) ================= -->
+    <section class="modules-section" id="modules">
+      <div class="modules-pin">
+        <div class="container modules-head">
+          <div>
+            <span class="eyebrow light">What you get</span>
+            <h2 data-split>Everything inside <span class="soft">2.0</span></h2>
+          </div>
+          <p>Science, practical skills and business growth in one place. Scroll through the course.</p>
+        </div>
+
+        <div class="h-track">
+          <article class="m-card">
+            <svg class="m-art" viewBox="0 0 100 100"><path d="M30 30l20-12 20 12v24l-20 12-20-12z"/><path d="M50 66v20M70 30l14-8M30 54l-14 8"/></svg>
+            <span class="m-num">01</span>
+            <span class="m-tag">Science</span>
+            <h3>The Science of Skin</h3>
+            <p>Deep dive into skin biology, cellular function and the science behind how products and treatments actually work. Built from a molecular biology degree so you understand what's happening beneath the surface.</p>
+          </article>
+          <article class="m-card">
+            <svg class="m-art" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="16"/><circle cx="50" cy="50" r="4"/></svg>
+            <span class="m-num">02</span>
+            <span class="m-tag">Science</span>
+            <h3>Acne: Causes, Types &amp; Treatment Protocols</h3>
+            <p>What's really driving acne, how to tell the types apart and how to build treatment protocols you can explain to your clients with confidence.</p>
+          </article>
+          <article class="m-card">
+            <svg class="m-art" viewBox="0 0 100 100"><path d="M40 10c0 30-6 50-4 70 2 14 26 14 28 0 2-20-4-40-4-70"/></svg>
+            <span class="m-num">03</span>
+            <span class="m-tag new">Practical</span>
+            <h3>Extractions Masterclass</h3>
+            <p>Filmed in clinic. Safe technique, tools and equipment, skin prep, when to extract and when to leave it, and how to minimise marking and reactions.</p>
+          </article>
+          <article class="m-card">
+            <svg class="m-art" viewBox="0 0 100 100"><path d="M10 50c20-30 60-30 80 0M10 62c20-30 60-30 80 0M10 74c20-30 60-30 80 0"/></svg>
+            <span class="m-num">04</span>
+            <span class="m-tag">Practical</span>
+            <h3>Glass Skin &amp; Facial Massage</h3>
+            <p>Filmed demonstrations you can replicate in your own clinic, with the science behind why every step works.</p>
+          </article>
+          <article class="m-card">
+            <svg class="m-art" viewBox="0 0 100 100"><path d="M15 80l20-24 18 12 30-40"/><path d="M70 28h13v13"/></svg>
+            <span class="m-num">05</span>
+            <span class="m-tag new">Business</span>
+            <h3>Pricing, Content &amp; Client Retention</h3>
+            <p>Actionable steps to grow your clinic: how to price as a specialist, create content that builds authority and keep clients coming back.</p>
+          </article>
+          <article class="m-card">
+            <svg class="m-art" viewBox="0 0 100 100"><path d="M30 50c0-12 16-12 20 0s20 12 20 0-16-12-20 0-20 12-20 0z"/></svg>
+            <span class="m-num">06</span>
+            <span class="m-tag">Forever</span>
+            <h3>Lifetime Access &amp; Updates</h3>
+            <p>This isn't a course that gets made once and forgotten about. New modules and content get added as the science and the industry develop, at no extra cost.</p>
+          </article>
+          <article class="m-card m-card--cta">
+            <span class="m-tag" style="color:var(--ink);margin-top:0">Ready?</span>
+            <h3>Start understanding the why.</h3>
+            <a href="#enrol" class="btn magnetic" style="align-self:flex-start">Enrol now
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+          </article>
+        </div>
+        <div class="h-progress"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ================= IS THIS FOR YOU ================= -->
+    <section class="section section--sand" id="for-you">
+      <div class="container">
+        <div class="center" style="margin-bottom:46px">
+          <span class="eyebrow" data-reveal>Be honest with yourself</span>
+          <h2 data-split>Is this <span class="soft">for you?</span></h2>
+        </div>
+        <div class="fit">
+          <div class="center">
+            <div class="fit-switch" role="tablist" data-reveal>
+              <span class="knob"></span>
+              <button class="active" data-fit="yes" role="tab" aria-selected="true">This is for you if</button>
+              <button data-fit="no" role="tab" aria-selected="false">This is NOT for you if</button>
+            </div>
+          </div>
+          <div class="fit-lists">
+            <ul class="fit-list fit-list--yes" data-fit="yes" data-reveal>
+              <li><span class="ic">✓</span>You're a skin specialist or esthetician who wants to understand the science behind your treatments, not just follow a protocol</li>
+              <li><span class="ic">✓</span>You want to feel genuinely confident when a client asks you why something works</li>
+              <li><span class="ic">✓</span>You've taken courses before but felt like they barely scratched the surface</li>
+              <li><span class="ic">✓</span>You know extractions are in demand but you're not confident performing them</li>
+              <li><span class="ic">✓</span>You want to charge more but feel like you need to back it up with deeper knowledge first</li>
+              <li><span class="ic">✓</span>You're building a clinic or a brand and want the business side to match your clinical skills</li>
+              <li><span class="ic">✓</span>You want to learn from someone who has actually studied this at degree level, not just picked it up from a weekend workshop</li>
+            </ul>
+            <ul class="fit-list fit-list--no" data-fit="no" hidden>
+              <li><span class="ic">✕</span>You're looking for a quick certificate to stick on your wall without actually learning anything</li>
+              <li><span class="ic">✕</span>You don't want to put in the work to understand the why behind what you do</li>
+              <li><span class="ic">✕</span>You're happy doing the same treatments the same way and aren't interested in levelling up</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT MAKES THIS DIFFERENT ================= -->
+    <section class="section section--white" id="different">
+      <div class="container">
+        <div class="diff-grid">
+          <div>
+            <span class="eyebrow" data-reveal>What makes this different</span>
+            <p class="quote" data-reveal>Most skin courses are taught by people with a weekend qualification and a ring light. This one is built by someone with a four-year molecular biology degree <span class="soft">who is currently completing a Masters in Dermatology.</span></p>
+            <p data-reveal>That's not a marketing line. That's the difference between learning what to do and actually understanding why it works.</p>
+            <a href="#enrol" class="btn magnetic" data-reveal style="margin-top:14px">Enrol now
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+          </div>
+          <div class="media media--land" data-clip>
+            <img src="../assets/img/treatment-bed.jpg" alt="Treatment room with a By The Molecule towel" loading="lazy">
+            <span class="media-tag"><i></i> Filmed in a real clinic</span>
+          </div>
+        </div>
+
+        <div class="compare" data-reveal>
+          <div class="compare-row compare-head"><div></div><div>Most skin courses</div><div>The Skin Scientist</div></div>
+          <div class="compare-row"><div><b>Who teaches it</b></div><div><span class="x">✕</span>Weekend qualification</div><div><span class="tick">✓</span>Molecular biology graduate</div></div>
+          <div class="compare-row"><div><b>Where it comes from</b></div><div><span class="x">✕</span>Theory from a textbook</div><div><span class="tick">✓</span>Real clients in a real clinic</div></div>
+          <div class="compare-row"><div><b>What it covers</b></div><div><span class="x">✕</span>One technique in isolation</div><div><span class="tick">✓</span>Science, clinical skills and business</div></div>
+          <div class="compare-row"><div><b>Industry standards</b></div><div><span class="x">✕</span>Built for yesterday</div><div><span class="tick">✓</span>Built for the new standard</div></div>
+          <div class="compare-row"><div><b>After you buy</b></div><div><span class="x">✕</span>Made once, then forgotten</div><div><span class="tick">✓</span>Constantly evolving, free updates</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ENROL ================= -->
+    <section class="section section--dark" id="enrol" data-hide-sticky>
+      <div class="container enrol-grid">
+        <div class="enrol-side">
+          <span class="eyebrow light" data-reveal>Enrol now</span>
+          <h2 data-split>Enter your details <span class="soft">to enrol</span></h2>
+          <p data-reveal>Tell me a little about you and your clinic. I read every application personally.</p>
+          <div class="price-card" data-reveal>
+            <div class="from">The Skin Scientist 2.0 starts from</div>
+            <div class="price">£997</div>
+            <ul>
+              <li>Lifetime access to every module</li>
+              <li>All future modules and updates included</li>
+              <li>Split it with Clearpay, interest-free</li>
+            </ul>
+          </div>
+          <p class="next-steps" data-reveal><b>What happens next?</b> Submit your details and I'll be in touch to answer your questions and get you started.</p>
+        </div>
+
+        <div class="form-card" data-reveal>
+          <h3>Your details</h3>
+          <p class="form-intro">Fields marked * are required.</p>
+          <form data-form="enrol">
+            <div class="field">
+              <label for="f-name">Full name</label>
+              <input id="f-name" name="full_name" type="text" autocomplete="name" placeholder="Enter your full name">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-phone">Phone <span class="req">*</span></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7000 000000" required>
+              </div>
+              <div class="field">
+                <label for="f-email">Email <span class="req">*</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-ig">Instagram handle</label>
+              <input id="f-ig" name="instagram" type="text" placeholder="@yourhandle">
+            </div>
+            <div class="field">
+              <label for="f-goal">What's your current goal with your clinic?</label>
+              <textarea id="f-goal" name="goal"></textarea>
+            </div>
+            <div class="field">
+              <label for="f-struggle">What's your biggest struggle with your clinic?</label>
+              <textarea id="f-struggle" name="struggle"></textarea>
+            </div>
+            <div class="field">
+              <label>The Skin Scientist 2.0 starts from £997 for lifetime access. Is this something you're able to invest in right now? <span class="req">*</span></label>
+              <div class="radio-cards">
+                <label><input type="radio" name="investment_ready" value="Yes, ready now" required> Yes, I'm ready to invest now</label>
+                <label><input type="radio" name="investment_ready" value="Yes, with Clearpay"> Yes, using Clearpay instalments</label>
+                <label><input type="radio" name="investment_ready" value="In the next few months"> Not right now, but in the next few months</label>
+                <label><input type="radio" name="investment_ready" value="No"> No</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--block" style="margin-top:10px">Submit
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </button>
+            <p class="form-msg" role="status"></p>
+          </form>
+          <div class="form-success" role="status">
+            <span class="check"><svg viewBox="0 0 40 40"><path d="M10 21l7 7 14-15"/></svg></span>
+            <h3>Thank you</h3>
+            <p>I've got your details and I'll be in touch very soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section section--dark" id="faq" style="padding-top:40px">
+      <div class="container faq-wrap">
+        <div class="faq-side">
+          <span class="eyebrow light" data-reveal>Questions</span>
+          <h2 data-split>Frequently asked <span class="soft">questions</span></h2>
+          <p data-reveal>Still unsure? DM me on Instagram and I'll answer personally.</p>
+        </div>
+        <div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">01</span>Who is this course for?<span class="pm"></span></button><div class="faq-a"><div><p>This course is designed for skin specialists, estheticians, facialists and beauty professionals who want to deepen their understanding of skin science and improve their clinical skills. Whether you're just starting out or you've been treating clients for years, the content is built to fill the gaps that most training courses leave behind.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">02</span>Do I need any prior qualifications?<span class="pm"></span></button><div class="faq-a"><div><p>A basic understanding of skincare or esthetics is helpful, but you don't need a science degree. The course is designed to make complex science accessible and practical. If you're working in the skin industry or training to, you'll be able to follow along.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">03</span>How long do I have access to the course?<span class="pm"></span></button><div class="faq-a"><div><p>Lifetime. Once you're enrolled, you have access to all current modules and any future updates or additions at no extra cost.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">04</span>Is there a payment plan available?<span class="pm"></span></button><div class="faq-a"><div><p>Yes. You can split the cost into interest-free payments using Clearpay at checkout. The full price is shown at checkout and Clearpay allows you to spread it across instalments so it's more manageable.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">05</span>What's included in the extractions module?<span class="pm"></span></button><div class="faq-a"><div><p>This module covers safe extraction techniques, the tools and equipment you need, how to prepare the skin before extracting, when to extract and when to leave it, how to minimise marking and post-treatment reactions, and fully professionally filmed demonstrations so you can see exactly how it's done in clinic.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">06</span>I've already bought the original course. Do I get the new modules?<span class="pm"></span></button><div class="faq-a"><div><p>Yes. If you're an existing student, you'll receive access to all new modules including extractions and business content at no additional cost. You're part of 2.0 now, just like our originals.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">07</span>Is this just theory or is it practical?<span class="pm"></span></button><div class="faq-a"><div><p>Both. The science modules give you the deep understanding of what's happening at a biological level. The practical modules like extractions, glass skin and facial massage are filmed demonstrations that you can replicate in your own clinic. The business module gives you actionable steps to grow your clinic. It's the full picture.</p></div></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false"><span class="num">08</span>Will this help me charge more?<span class="pm"></span></button><div class="faq-a"><div><p>When you understand the science behind what you do and can communicate that to your clients, you're no longer competing on price. You're competing on expertise. The business module also covers pricing strategy specifically. So yes, this is built to help you earn more.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BIG CTA MARQUEE ================= -->
+    <div class="big-marquee">
+      <a href="#enrol" class="big-marquee-track" aria-label="Enrol now">
+        <span>Enrol now</span><span class="outline">The Skin Scientist</span><span>Enrol now</span><span class="outline">The Skin Scientist</span>
+        <span>Enrol now</span><span class="outline">The Skin Scientist</span><span>Enrol now</span><span class="outline">The Skin Scientist</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer" data-hide-sticky>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <span class="eyebrow" data-reveal>Stay in the loop</span>
+          <h3 data-reveal>Sign up with your email address to receive news and updates.</h3>
+        </div>
+        <form class="newsletter" data-form="newsletter" data-reveal>
+          <input name="first_name" type="text" placeholder="First name" aria-label="First name">
+          <input name="last_name" type="text" placeholder="Last name" aria-label="Last name">
+          <input name="email" type="email" placeholder="Email address" aria-label="Email address" required>
+          <button type="submit" class="btn">Sign up</button>
+          <p class="form-msg" role="status">We respect your privacy.</p>
+        </form>
+      </div>
+      <div class="footer-word" aria-hidden="true">Molecule</div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> By The Molecule. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="../privacy-policy/">Privacy Policy</a>
+          <a href="../terms/">Terms &amp; Conditions</a>
+          <a href="../disclaimer/">Disclaimer</a>
+          <a href="../contact/">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta">
+    <span>The Skin Scientist 2.0 · Lifetime access</span>
+    <a href="#enrol" class="btn btn--light">Enrol now</a>
+  </div>
+
+  <script src="../assets/js/vendor/gsap.min.js"></script>
+  <script src="../assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
