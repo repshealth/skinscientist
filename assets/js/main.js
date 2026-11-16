@@ -23,6 +23,10 @@ const SITE_CONFIG = {
   // Where to send people after the application form submits (the "book your call" thank you page)
   enrolRedirectUrl: "thank-you/",
 
+  // REPS dashboard: applications land as leads in this sub-account
+  repsFormsUrl: "https://repshealthgrowth.com/api/forms",
+  repsClientSlug: "by-the-molecule",
+
   // Acuity booking page embedded on /skin-scientist/thank-you/
   acuityBookingUrl: "https://app.acuityscheduling.com/schedule.php?owner=32679780&appointmentType=95880284",
 
@@ -518,6 +522,31 @@ async function klaviyoApplication(data) {
   if (!res.ok && res.status !== 202) throw new Error("Klaviyo error " + res.status);
 }
 
+// Sends the application to the REPS dashboard, where it shows in the client's Leads as a new lead
+async function repsApplication(data) {
+  const res = await fetch(SITE_CONFIG.repsFormsUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client: SITE_CONFIG.repsClientSlug,
+      source: "ads",
+      form: "Skin Scientist Application",
+      page: data.page,
+      utm_campaign: new URLSearchParams(location.search).get("utm_campaign") || "",
+      name: data.full_name || "",
+      email: data.email || "",
+      phone: data.phone || "",
+      answers: {
+        "Current goal": data.goal || "",
+        "Biggest struggle": data.struggle || "",
+        "Ready to invest": data.investment_ready || "",
+        Instagram: data.instagram || ""
+      }
+    })
+  });
+  if (!res.ok) throw new Error("REPS dashboard error " + res.status);
+}
+
 document.querySelectorAll("form[data-form='enrol']").forEach((form) => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -528,8 +557,9 @@ document.querySelectorAll("form[data-form='enrol']").forEach((form) => {
     btn.disabled = true;
     setMsg(form, "Sending your application...", "");
 
-    // Send to Klaviyo, plus the optional webhook (CRM / Zapier / Make) if one is set
+    // Send to Klaviyo and the REPS dashboard, plus the optional webhook (CRM / Zapier / Make) if one is set
     const jobs = [klaviyoApplication(data)];
+    if (SITE_CONFIG.repsFormsUrl && SITE_CONFIG.repsClientSlug) jobs.push(repsApplication(data));
     if (SITE_CONFIG.enrolWebhookUrl && !SITE_CONFIG.enrolWebhookUrl.startsWith("REPLACE")) {
       jobs.push(fetch(SITE_CONFIG.enrolWebhookUrl, {
         method: "POST",
