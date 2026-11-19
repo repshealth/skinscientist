@@ -23,5 +23,5 @@ Animations use GSAP + ScrollTrigger, bundled locally in `assets/js/vendor/` (no 
    - `repsFormsUrl` / `repsClientSlug` : applications also land as leads in this REPS dashboard sub-account (`by-the-molecule`)
    - `acuityBookingUrl` : Acuity booking page embedded on the thank you page
    - `jadeWhatsAppNumber` : number for the "confirm on WhatsApp" button, e.g. `447700900123`
-4. **Countdown** target is the `data-countdown` attribute in `black-friday/index.html` (`2026-11-20T09:00:00Z` = 9am UK).
+4. **Countdown** target is the `data-countdown` attribute in `black-friday/index.html` (`2026-11-22T09:00:00Z` = 9am UK).
 5. Nav/footer link to `/about/`, `/blog/`, `/contact/`, `/inner-circle/`, `/privacy-policy/`, `/terms/`, `/disclaimer/`. Add those folders as pages are migrated.
