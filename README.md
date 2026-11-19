@@ -6,6 +6,7 @@ Animations use GSAP + ScrollTrigger, bundled locally in `assets/js/vendor/` (no 
 ## Pages
 - `/skin-scientist/` : The Skin Scientist 2.0 sales page (redesign of the Squarespace page)
 - `/skin-scientist/thank-you/` : Step 2 after applying, book a call (Acuity embed, noindex)
+- `/black-friday/thank-you/` : confirmation after joining the Black Friday VIP list (noindex)
 - `/black-friday/` : Black Friday VIP register page (noindex, not linked from the main nav)
 
 ## Before going live

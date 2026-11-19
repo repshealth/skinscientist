@@ -11,7 +11,10 @@ const SITE_CONFIG = {
   klaviyoPublicKey: "StzVdH",
 
   // Klaviyo list ID for the Black Friday VIP register page
-  klaviyoVipListId: "REPLACE_WITH_BLACK_FRIDAY_LIST_ID",
+  klaviyoVipListId: "Yyu2XP", // "Black Friday VIP: The Skin Scientist" (single opt-in)
+
+  // Where the Black Friday form sends people once they're on the list
+  vipRedirectUrl: "thank-you/",
 
   // Klaviyo list ID for the footer newsletter sign up
   klaviyoNewsletterListId: "TPcwRC",
@@ -431,27 +434,59 @@ document.querySelectorAll("form[data-form='vip']").forEach((form) => {
     e.preventDefault();
     const btn = form.querySelector("button[type=submit]");
     const d = new FormData(form);
+    const first = (d.get("first_name") || "").trim();
     btn.disabled = true;
     setMsg(form, "Saving your place on the list...", "");
-    try {
-      await klaviyoSubscribe({
+
+    const jobs = [
+      klaviyoSubscribe({
         listId: SITE_CONFIG.klaviyoVipListId,
         email: d.get("email"),
-        firstName: d.get("first_name"),
+        firstName: first,
         phone: d.get("phone") || undefined,
         properties: { instagram_handle: d.get("instagram") || "", bf_vip_2026: true, role: d.get("role") || "" },
         source: "Black Friday VIP register page"
-      });
-      form.reset();
-      setMsg(form, "", "");
-      showSuccess(form);
-    } catch (err) {
-      console.error(err);
-      setMsg(form, "Something went wrong there. Please try again or DM me on Instagram.", "err");
-    } finally {
-      btn.disabled = false;
+      })
+    ];
+    if (SITE_CONFIG.repsFormsUrl && SITE_CONFIG.repsClientSlug) {
+      jobs.push(fetch(SITE_CONFIG.repsFormsUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          client: SITE_CONFIG.repsClientSlug,
+          source: "news",
+          form: "Black Friday VIP list",
+          page: location.pathname,
+          utm_campaign: new URLSearchParams(location.search).get("utm_campaign") || "",
+          name: first,
+          email: d.get("email"),
+          answers: { Role: d.get("role") || "", Instagram: d.get("instagram") || "" }
+        })
+      }).then((r) => { if (!r.ok) throw new Error("REPS dashboard error " + r.status); }));
     }
+    const results = await Promise.allSettled(jobs);
+    results.forEach((r) => { if (r.status === "rejected") console.error(r.reason); });
+
+    if (!results.some((r) => r.status === "fulfilled")) {
+      setMsg(form, "Something went wrong there. Please try again or DM me on Instagram.", "err");
+      btn.disabled = false;
+      return;
+    }
+    if (SITE_CONFIG.vipRedirectUrl) {
+      try { sessionStorage.setItem("ss_vip_name", first); } catch (_) {}
+      location.href = SITE_CONFIG.vipRedirectUrl;
+      return;
+    }
+    form.reset();
+    setMsg(form, "", "");
+    showSuccess(form);
+    btn.disabled = false;
   });
+});
+
+/* Black Friday thank you page: greet by first name */
+document.querySelectorAll("[data-vip-name]").forEach((el) => {
+  try { const n = sessionStorage.getItem("ss_vip_name"); if (n) el.textContent = ", " + n; } catch (_) {}
 });
 
 document.querySelectorAll("form[data-form='newsletter']").forEach((form) => {
