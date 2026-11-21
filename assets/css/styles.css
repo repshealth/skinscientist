@@ -743,3 +743,18 @@ em.soft, .soft { font-style: italic; font-weight: 300; }
 .bf-card .bf-price b { font-size: 4rem; font-weight: 600; letter-spacing: -.05em; color: var(--white); line-height: 1.1; }
 .bf-secure { margin: 12px 0 0; text-align: center; font-size: .8rem; color: rgba(255,255,255,.55); }
 .sticky-cta s { opacity: .55; }
+
+/* Hero: one centred Get offer button with a pointer to the video */
+.bf-actions { flex-direction: column; align-items: center; justify-content: flex-end; gap: 16px; text-align: center; }
+.bf-actions .btn { min-width: 260px; justify-content: center; }
+.bf-watch { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; color: rgba(255,255,255,.8); text-decoration: none; }
+.bf-watch svg { width: 14px; height: 14px; animation: bfNudge 1.8s ease-in-out infinite; }
+.bf-watch:hover { color: var(--white); }
+@keyframes bfNudge { 50% { transform: translateY(3px); } }
+@media (max-width: 1024px) { .hero-actions.bf-actions { justify-content: center; align-items: center; width: 100%; } }
+@media (max-width: 720px) { .bf-actions .btn { width: 100%; min-width: 0; } }
+
+/* BSc card sits bottom-left so it never covers Jade's face */
+.media-float { top: auto; right: auto; bottom: 36px; left: -28px; }
+@media (max-width: 1024px) { .media-float { left: 16px; right: auto; } }
+@media (max-width: 720px) { .media-float { top: auto; bottom: 16px; left: 16px; } }
