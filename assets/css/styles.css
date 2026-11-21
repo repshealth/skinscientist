@@ -758,3 +758,18 @@ em.soft, .soft { font-style: italic; font-weight: 300; }
 .media-float { top: auto; right: auto; bottom: 36px; left: -28px; }
 @media (max-width: 1024px) { .media-float { left: 16px; right: auto; } }
 @media (max-width: 720px) { .media-float { top: auto; bottom: 16px; left: 16px; } }
+
+/* "What makes this different" credentials panel (replaces the missing photo) */
+.cred-panel { position: relative; overflow: hidden; aspect-ratio: 5 / 4; border-radius: var(--r); background: var(--ink); color: rgba(255,255,255,.75); padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow); }
+.cred-molecule { position: absolute; right: -70px; top: -70px; width: 50%; opacity: .3; animation: credSpin 60s linear infinite; }
+.cred-molecule path, .cred-molecule line { stroke: rgba(215,196,177,.5); }
+.cred-molecule circle { fill: var(--sand); }
+@keyframes credSpin { to { transform: rotate(360deg); } }
+.cred-eyebrow { position: relative; font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--sand); }
+.cred-list { position: relative; list-style: none; margin: 0; padding: 0; }
+.cred-list li { display: grid; grid-template-columns: 110px 1fr; gap: 18px; align-items: baseline; padding: 16px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.cred-list b { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 600; letter-spacing: -.03em; color: var(--white); line-height: 1; }
+.cred-list span { font-size: .98rem; line-height: 1.45; }
+.cred-sign { position: relative; font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+@media (max-width: 720px) { .cred-panel { aspect-ratio: auto; gap: 26px; } .cred-list li { grid-template-columns: 84px 1fr; gap: 12px; } }
+@media (prefers-reduced-motion: reduce) { .cred-molecule { animation: none; } }
