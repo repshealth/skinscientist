@@ -483,7 +483,7 @@ em.soft, .soft { font-style: italic; font-weight: 300; }
 .next-steps b { color: var(--white); }
 
 .form-card { background: var(--white); color: var(--cocoa); border-radius: var(--r); padding: 46px 42px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.5); position: relative; overflow: hidden; }
-.form-card h3 { font-size: 1.6rem; letter-spacing: -0.02em; }
+.form-card h3 { font-size: 1.6rem; letter-spacing: -0.02em; color: var(--ink); }
 .form-card .form-intro { color: var(--muted); margin-bottom: 28px; }
 .field { position: relative; margin-bottom: 18px; }
 .field label { display: block; font-weight: 600; font-size: 0.86rem; color: var(--ink); margin-bottom: 8px; }
@@ -731,3 +731,15 @@ em.soft, .soft { font-style: italic; font-weight: 300; }
   .sticky-cta { padding: 6px; }
   .big-marquee { padding: 28px 0; }
 }
+
+/* ---------- Black Friday (course page) ---------- */
+.bf-kicker { margin: 0 0 18px; font-size: .8rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--sand); }
+.bf-hero-price { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; color: var(--white); }
+.bf-hero-price s { font-size: 1.4rem; color: rgba(255,255,255,.55); }
+.bf-hero-price b { font-size: 2.6rem; font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+.bf-hero-price span { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sand); }
+.bf-card .bf-price { display: flex; align-items: baseline; gap: 16px; }
+.bf-card .bf-price s { font-size: 1.6rem; color: rgba(255,255,255,.5); }
+.bf-card .bf-price b { font-size: 4rem; font-weight: 600; letter-spacing: -.05em; color: var(--white); line-height: 1.1; }
+.bf-secure { margin: 12px 0 0; text-align: center; font-size: .8rem; color: rgba(255,255,255,.55); }
+.sticky-cta s { opacity: .55; }
